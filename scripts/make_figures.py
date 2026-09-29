@@ -37,7 +37,7 @@ FIG = os.path.join(ROOT, "figures")
 COL_W, PAGE_W = 3.5, 7.16          # ancho de columna / de pagina IEEE (in)
 mpl.rcParams.update({
     "font.family": "serif",
-    "font.serif": ["TeX Gyre Termes", "Times New Roman", "Liberation Serif", "DejaVu Serif"],
+    "font.serif": ["Liberation Serif", "Times New Roman", "DejaVu Serif"],
     "mathtext.fontset": "stix",
     "font.size": 8, "axes.titlesize": 8, "axes.labelsize": 8,
     "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 7,

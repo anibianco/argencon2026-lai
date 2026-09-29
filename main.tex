@@ -4,7 +4,8 @@
 %   (o en Overleaf: subir main.tex, refs.bib y la carpeta figures/)
 % Las lineas marcadas con "% VERIFICAR" requieren revision de los autores.
 % =====================================================================
-\documentclass[conference]{IEEEtran}
+\documentclass[conference,a4paper]{IEEEtran}   % A4, como el manuscrito enviado (plantilla IEEE A4)
+\IEEEoverridecommandlockouts                        % necesario para \IEEEpubid (nota de copyright)
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -17,6 +18,11 @@
 \usepackage{url}
 \usepackage{textcomp}
 
+% Salto de linea entre filas de autores (recurso de la plantilla oficial IEEE)
+\makeatletter
+\newcommand{\linebreakand}{\end{@IEEEauthorhalign}\hfill\mbox{}\par\mbox{}\hfill\begin{@IEEEauthorhalign}}
+\makeatother
+
 \sisetup{group-separator={\,}, group-minimum-digits=4, detect-all}
 \graphicspath{{figures/}}
 
@@ -25,32 +31,37 @@
 \title{Sensitivity of Biogenic Volatile Organic Compound Emissions Estimates to Different Leaf Area Index Inputs}
 
 \author{%
-\begin{tabular}{@{}c@{\hspace{0.01\textwidth}}c@{\hspace{0.01\textwidth}}c@{}}
-\parbox[t]{0.31\textwidth}{\centering\small Anah\'i Bianco\\
-{\small\itshape Instituto de Investigaciones en\\
-Fisicoqu\'imica de C\'ordoba --\\
-Instituto Gulich -- CONICET\\
+\IEEEauthorblockN{Anah\'i Bianco}
+\IEEEauthorblockA{\textit{Instituto de Investigaciones en}\\
+\textit{Fisicoqu\'imica de C\'ordoba --}\\
+\textit{Instituto Gulich -- CONICET}\\
 C\'ordoba, Argentina\\
-anahi.bianco@ig.edu.ar}} &
-\parbox[t]{0.36\textwidth}{\centering\small Mar\'ia Fernanda Garc\'ia Ferreyra\\
-{\small\itshape Comisi\'on Nacional de\\
-Actividades Espaciales (CONAE)\\
+anahi.bianco@ig.edu.ar}
+\and
+\IEEEauthorblockN{Mar\'ia Fernanda Garc\'ia Ferreyra}
+\IEEEauthorblockA{\textit{Comisi\'on Nacional de}\\
+\textit{Actividades Espaciales (CONAE)}\\
 Falda del Carmen, Argentina\\
-fgarciaferreyra@conae.gov.ar}} &
-\parbox[t]{0.29\textwidth}{\centering\small Mario Agust\'in Sgr\'o\\
-{\small\itshape Comisi\'on Nacional de\\
-Actividades Espaciales (CONAE)\\
+fgarciaferreyra@conae.gov.ar}
+\and
+\IEEEauthorblockN{Mario Agust\'in Sgr\'o}
+\IEEEauthorblockA{\textit{Comisi\'on Nacional de}\\
+\textit{Actividades Espaciales (CONAE)}\\
 Falda del Carmen, Argentina\\
-mario.sgro@ig.edu.ar}} \\
-[1ex]
-\multicolumn{3}{c}{\parbox[t]{0.40\textwidth}{\centering\small Maxi Alberto Burgos Paci\\
-{\small\itshape Instituto de Investigaciones en\\
-Fisicoqu\'imica de C\'ordoba\\
-CONICET\\
+mario.sgro@ig.edu.ar}
+\linebreakand
+\IEEEauthorblockN{Maxi Alberto Burgos Paci}
+\IEEEauthorblockA{\textit{Instituto de Investigaciones en}\\
+\textit{Fisicoqu\'imica de C\'ordoba}\\
+\textit{CONICET}\\
 C\'ordoba, Argentina\\
-mburgos@fcq.unc.edu.ar}}}
-\end{tabular}
+mburgos@fcq.unc.edu.ar}
 }
+
+% Nota de copyright (obligatoria en IEEE Xplore). Reemplazar por el codigo que envien
+% los organizadores de ARGENCON 2026 (formato: 979-8-XXXX-XXXX-X/26/$31.00 (c)2026 IEEE).
+\IEEEpubid{\makebox[\columnwidth]{XXX-X-XXXX-XXXX-X/XX/\$XX.00~\copyright~20XX IEEE \hfill}\hspace{\columnsep}\makebox[\columnwidth]{ }}
+
 \maketitle
 
 % ---------------------------------------------------------------------
@@ -65,6 +76,7 @@ Isoprene, MEGAN, MODIS, vegetation phenology, satellite remote sensing, sensitiv
 % ---------------------------------------------------------------------
 \section{Introduction}
 
+\IEEEpubidadjcol   % deja lugar para la nota de copyright en la 2a columna de la pag. 1
 Biogenic volatile organic compounds (BVOCs) represent one of the main sources of organic compound emissions to the atmosphere at a global scale, surpassing anthropogenic sources in many regions~\cite{guenther2006,sindelarova2014}. Among them, isoprene (C$_5$H$_8$) is the most abundant BVOC emitted by terrestrial vegetation and plays a key role in tropospheric atmospheric chemistry, as it actively participates in the formation of surface ozone~\cite{carlton2009}, contributes to the generation of secondary organic aerosols (SOA), and modulates the oxidative balance of the atmosphere through its reaction with the hydroxyl radical (OH)~\cite{atkinson2003,khan2025}.
 
 The Model of Emissions of Gases and Aerosols from Nature (MEGAN)~\cite{guenther2012} is currently one of the most widely used approaches for estimating biogenic emissions at urban, regional and global scales~\cite{sun2025,kaser2022,wei2024,bauwens2018}. The central equation of MEGAN is:
@@ -245,6 +257,9 @@ In summary, it is recommended to evaluate both absolute and relative sensitivity
 
 This work used computational resources from UNC Supercómputo (CCAD) -- Universidad Nacional de C\'ordoba (\url{https://supercomputo.unc.edu.ar}), which are part of SNCAD, Rep\'ublica Argentina. AB thanks CONICET for the PhD fellowship. Financial support from SECYT-UNC and CONICET is acknowledged.
 
+% Igualar columnas en la ultima pagina (pedido de la plantilla IEEE): salto de columna antes de la ref. N.
+% Si cambia el texto, ajustar N mirando la ultima pagina.
+\IEEEtriggeratref{7}
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
 
