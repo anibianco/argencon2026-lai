@@ -86,8 +86,8 @@ Biogenic isoprene emissions were estimated using MEGAN v3.2~\cite{guenther2020},
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.85\columnwidth]{fig1_domain}
-\caption{Spatial extent and grid of the simulation domains used in this study.}
+\includegraphics{fig1_domain}
+\caption{Simulation domains (Lambert Conformal Conic projection): raw WRF domain, trimmed MEGAN domain (30~km), MODIS MCD15A2H download extent, and Argentine land mask (IGN) used to restrict all totals.}
 \label{fig:domain}
 \end{figure}
 
@@ -120,8 +120,9 @@ National and regional totals were calculated by summing these accumulated cell-l
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=0.92\textwidth]{fig2_lai}
-\caption{Spatial comparison of the Leaf Area Index (LAI) over the Argentine continental domain (30~km resolution, Lambert Conformal Conic projection) for summer (top row; MODIS 8-day composite~1, 2023) and winter (bottom row; MODIS 8-day composite~27, 2023). Columns: (left) MEGAN v3.2 default LAI climatology (representative of ${\sim}2003$), corrected by vegetation cover fraction to convert LAIv (LAI per vegetated area) to LAI per total cell area; (center) MODIS v6.1-derived LAI (MCD15A2H) for 2003; (right) same for 2023. All panels are in LAI units (m$^2$ leaf/m$^2$ ground).}
+\includegraphics{fig2_lai}
+\caption{Spatial comparison of the Leaf Area Index (LAI) over the Argentine continental domain (30~km resolution, Lambert Conformal Conic projection) for the summer (a--c; MODIS 8-day composite~1) and winter (d--f; composite~27) weeks. (a, d) MEGAN v3.2 default LAI climatology (representative of ${\sim}2003$); (b, e) MODIS v6.1 (MCD15A2H) LAI for 2003; (c, f) same for 2023. % VERIFICAR: el pie original decia que el Default estaba corregido por fraccion de cobertura (LAIv->LAI); el array graficado es LAIv/10 sin esa correccion.
+ All panels are in LAI units (m$^2$ leaf/m$^2$ ground).}
 \label{fig:lai}
 \end{figure*}
 % VERIFICAR: la version del modelo (antes decia "v3.2.1" en este pie y "v3.2" en el texto).
@@ -155,8 +156,8 @@ To investigate whether this national pattern was uniform or responded to some re
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.85\columnwidth]{fig3_ecoregions}
-\caption{WWF/Olson terrestrial ecoregions~\cite{olson2001,dinerstein2017} intersecting the study domain.}
+\includegraphics{fig3_ecoregions}
+\caption{WWF/Olson terrestrial ecoregions~\cite{olson2001,dinerstein2017} assigned to each 30~km grid cell of the Argentine mask; the number of cells per ecoregion is given in parentheses.}
 \label{fig:ecoregions}
 \end{figure}
 
@@ -196,20 +197,20 @@ Ecoregion & N & & \multicolumn{1}{c}{Default} & \multicolumn{1}{c}{MODIS 2023} &
 % Verificado con data/ISOP_stats_by_ecoregion_ARGonly_v2.csv: las 4 mayores son Dry Chaco, Humid Chaco,
 % Humid Pampas y Espinal en ambas estaciones (5a: Southern Andean Yungas). N total de la mascara = 3046.
 
-The complete spatial distribution of these differences, shown in the maps of relative ($\Delta E\%$; Fig.~\ref{fig:rel}) and absolute biases ($\Delta E$, kmol; Fig.~\ref{fig:abs}), confirms and extends what was observed at the ecoregion level. In relative terms, most Patagonian grid cells show a systematic and marked reduction ($-40\%$ to $-60\%$) when using MODIS LAI, in both seasons, while the center-north of the country (Chaco, Pampa) presents much more moderate differences, close to zero. The ecoregion-level values in Table~\ref{tab:ecoregions} ($-25.1\%$ and $-31.0\%$) are smaller in magnitude because they are computed from aggregated totals and are therefore weighted toward the higher-emitting cells, where relative changes are less pronounced. % VERIFICAR con la mediana de DeltaE% por celda en la Patagonian Steppe
-In absolute terms, however, the pattern is markedly seasonal: in summer an intense concentration of negative absolute change is observed in the NOA and Chaco regions (exceeding $-600$~kmol per cell) % VERIFICAR: antes decia -25 kmol; la barra de color de la Fig. 5 llega a +-700 kmol, while in winter that same zone shows much more subtle absolute changes, practically negligible in the rest of the country. This demonstrates that the relative and absolute sensitivity of the model to the LAI source are not equivalent, nor do they respond in the same way to seasonality: Patagonia is relatively more sensitive to LAI change in both seasons, while the absolute sensitivity of the Chaco/NOA is markedly greater in summer than in winter.
+The complete spatial distribution of these differences, shown in the maps of relative ($\Delta E\%$; Fig.~\ref{fig:rel}) and absolute biases ($\Delta E$, kmol; Fig.~\ref{fig:abs}), confirms and extends what was observed at the ecoregion level. In relative terms, Patagonian grid cells show a systematic and marked reduction when using MODIS LAI in both seasons (median $\Delta E\%$ of $-33\%$ in summer and $-41\%$ in winter across Patagonian Steppe cells), while the center-north of the country (Chaco, Pampa) presents much more moderate differences, close to zero. The ecoregion-level values in Table~\ref{tab:ecoregions} ($-25.1\%$ and $-31.0\%$) are smaller in magnitude because they are computed from aggregated totals and are therefore weighted toward the higher-emitting cells, where relative changes are less pronounced.
+In absolute terms, however, the pattern is markedly seasonal: in summer an intense concentration of negative absolute change is observed in the NOA and Chaco regions (below $-500$~kmol per cell in many cells and locally beyond $-1000$~kmol), while in winter that same zone shows much more subtle absolute changes, practically negligible in the rest of the country. This demonstrates that the relative and absolute sensitivity of the model to the LAI source are not equivalent, nor do they respond in the same way to seasonality: Patagonia is relatively more sensitive to LAI change in both seasons, while the absolute sensitivity of the Chaco/NOA is markedly greater in summer than in winter.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\columnwidth]{fig4_rel_bias}
-\caption{Relative isoprene emission bias ($\Delta E\%$, MODIS vs.\ Default) for (a) summer and (b) winter, restricted to Argentine continental territory.}
+\includegraphics{fig4_rel_bias}
+\caption{Relative isoprene emission bias ($\Delta E\%$, MODIS vs.\ Default) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission. The color scale is saturated at $\pm60\%$.}
 \label{fig:rel}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\columnwidth]{fig5_abs_bias}
-\caption{Absolute isoprene emission bias ($\Delta E = $ MODIS $-$ Default, kmol, weekly total) for (a) summer and (b) winter, restricted to Argentine continental territory.}
+\includegraphics{fig5_abs_bias}
+\caption{Absolute isoprene emission bias ($\Delta E = $ MODIS $-$ Default, kmol, weekly total) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission; the color scale is saturated at the 99th percentile of $|\Delta E|$.}
 \label{fig:abs}
 \end{figure}
 
@@ -217,7 +218,7 @@ Fig.~\ref{fig:temporal} complements the spatial analysis with a temporal charact
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.62\columnwidth]{fig6_temporal}
+\includegraphics{fig6_temporal}
 \caption{Temporal evolution of national isoprene (ISOP) emissions over continental Argentina for the Default and MODIS 2023 LAI scenarios. (a--b) Daily total emissions ($\times10^3$~kmol/day) during the simulated summer and winter weeks; the gray shaded area denotes the emission bias ($\Delta E$) between scenarios. (c--d) Mean diurnal cycle (kmol/s) averaged over the seven simulated days for summer and winter, with shaded envelopes indicating the inter-day standard deviation.}
 \label{fig:temporal}
 \end{figure}
