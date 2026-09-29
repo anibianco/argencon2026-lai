@@ -49,4 +49,4 @@ Estado: ✅ hecho · ⬜ pendiente · ❓ hay que decidir
 
 - Default LAI: el regrillado con Python reemplazó solo LAI01/LAI27; LAI02/LAI28 siguen con Fortran.
   La re-corrida de verano del 26/06 mezcla ambos → no se usa. El paper queda con la versión original.
-- Pie de la Fig. 2: dice que el Default está corregido por VCF, pero se grafica LAIv/10 (`% VERIFICAR` en main.tex).
+- Pie de la figura de LAI (ahora Fig. 3): dice que el Default está corregido por VCF, pero se grafica LAIv/10 (`% VERIFICAR` en main.tex).
