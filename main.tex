@@ -59,7 +59,7 @@ Biogenic volatile organic compounds (BVOCs), particularly isoprene, constitute o
 \end{abstract}
 
 \begin{IEEEkeywords}
-Biogenic emissions, isoprene, MEGAN, Leaf Area Index, MODIS, sensitivity analysis, Argentina, atmospheric chemistry
+Isoprene, MEGAN, MODIS, vegetation phenology, satellite remote sensing, sensitivity analysis, Argentina, atmospheric chemistry
 \end{IEEEkeywords}
 
 % ---------------------------------------------------------------------
@@ -67,14 +67,14 @@ Biogenic emissions, isoprene, MEGAN, Leaf Area Index, MODIS, sensitivity analysi
 
 Biogenic volatile organic compounds (BVOCs) represent one of the main sources of organic compound emissions to the atmosphere at a global scale, surpassing anthropogenic sources in many regions~\cite{guenther2006,sindelarova2014}. Among them, isoprene (C$_5$H$_8$) is the most abundant BVOC emitted by terrestrial vegetation and plays a key role in tropospheric atmospheric chemistry, as it actively participates in the formation of surface ozone~\cite{carlton2009}, contributes to the generation of secondary organic aerosols (SOA), and modulates the oxidative balance of the atmosphere through its reaction with the hydroxyl radical (OH)~\cite{atkinson2003,khan2025}.
 
-The Model of Emissions of Gases and Aerosols from Nature (MEGAN)~\cite{guenther2012} is currently one of the most widely used approaches for estimating biogenic emissions at urban, regional and global scales~\cite{sun2025,karl2018,wei2024,bauwens2018}. The central equation of MEGAN is:
+The Model of Emissions of Gases and Aerosols from Nature (MEGAN)~\cite{guenther2012} is currently one of the most widely used approaches for estimating biogenic emissions at urban, regional and global scales~\cite{sun2025,kaser2022,wei2024,bauwens2018}. The central equation of MEGAN is:
 \begin{equation}
 E = \varepsilon \cdot \gamma \cdot \rho
 \label{eq:megan}
 \end{equation}
 where $\varepsilon$ is the standard emission factor dependent on vegetation type, $\gamma$ is the activity factor that integrates the effects of temperature, photosynthetically active radiation and leaf area index (LAI), and $\rho$ represents the loss and production processes within the canopy~\cite{guenther2012,guenther2020}.
 
-LAI plays a central role, as it directly determines the active leaf biomass available for emission, and also modulates light attenuation processes within the vegetation canopy~\cite{zhang2004}. In its standard configuration, MEGAN uses a monthly LAI dataset derived from MODIS version~4 satellite data for the year 2003~\cite{guenther1993}, which does not necessarily reflect changes in this variable in subsequent years, especially in regions where phenological processes may differ substantially from year to year due to climate variability, land use changes, or extreme events~\cite{opacka2021,zhu2016,richardson2013}. The MODIS MCD15A2H product~\cite{myneni2021} provides continuous LAI estimates since 2002, making it possible to replace the standard dataset with the LAI specific to the year and period of interest.
+LAI plays a central role, as it directly determines the active leaf biomass available for emission, and also modulates light attenuation processes within the vegetation canopy~\cite{zhang2004}. In its standard configuration, MEGAN uses a monthly LAI dataset derived from Moderate Resolution Imaging Spectroradiometer (MODIS) version~4 satellite data for the year 2003~\cite{guenther1993}, which does not necessarily reflect changes in this variable in subsequent years, especially in regions where phenological processes may differ substantially from year to year due to climate variability, land use changes, or extreme events~\cite{opacka2021,zhu2016,richardson2013}. The MODIS MCD15A2H product~\cite{myneni2021} provides continuous LAI estimates since 2002, making it possible to replace the standard dataset with the LAI specific to the year and period of interest.
 
 Previous studies have indicated that uncertainty in MEGAN input variables (particularly LAI and temperature) constitutes one of the main sources of variability in estimated emissions, with differences that can exceed a factor of 3 for specific locations and time periods~\cite{guenther2006}, and discrepancies of up to 45\% attributable solely to the meteorological data source used~\cite{dimaria2023}. However, the magnitude of this sensitivity specifically attributable to the LAI source has not been systematically quantified for the Argentine territory, a region with notable ecological heterogeneity.
 
@@ -82,7 +82,7 @@ This contribution presents a sensitivity analysis of isoprene emissions estimate
 
 % ---------------------------------------------------------------------
 \section{Materials and Methods}
-Biogenic isoprene emissions were estimated using MEGAN v3.2~\cite{guenther2020}, with meteorological field inputs from WRF v4.5.1. The simulation domain, as shown in Fig.~\ref{fig:domain}, was centered at coordinates 40\textdegree S, 63\textdegree W, with a horizontal resolution of 30~km ($79$ columns $\times$ $159$ rows in the raw WRF domain, trimmed to $77 \times 157$ for MEGAN processing, following standard MEGAN preprocessing conventions). The chemical mechanism used for speciation was the Carbon Bond mechanism version~6 (CB6X)~\cite{emery2015}.
+Biogenic isoprene (ISOP) emissions were estimated using MEGAN v3.2~\cite{guenther2020}, with meteorological field inputs from the Weather Research and Forecasting (WRF) model v4.5.1. The simulation domain, as shown in Fig.~\ref{fig:domain}, was centered at coordinates 40\textdegree S, 63\textdegree W, with a horizontal resolution of 30~km ($79$ columns $\times$ $159$ rows in the raw WRF domain, trimmed to $77 \times 157$ for MEGAN processing, following standard MEGAN preprocessing conventions). The chemical mechanism used for speciation was the Carbon Bond mechanism version~6 (CB6X)~\cite{emery2015}.
 
 \begin{figure}[!t]
 \centering
@@ -91,13 +91,20 @@ Biogenic isoprene emissions were estimated using MEGAN v3.2~\cite{guenther2020},
 \label{fig:domain}
 \end{figure}
 
-In order to capture the seasonal variability of biogenic emissions under contrasting climatic conditions, two representative weeks were simulated: an austral summer week (January 4--10, 2023), corresponding to the period of highest photosynthetic activity and temperature in the region, and an austral winter week (August 1--7, 2023), characterized by lower solar radiation availability and temperatures~\cite{guenther2006,kavouras2007}. This selection allows the sensitivity of the model to the LAI source to be evaluated under two opposing phenological regimes, given that isoprene emissions depend strongly on both active leaf biomass and light and temperature conditions~\cite{guenther1993}.
+In order to capture the seasonal variability of biogenic emissions under contrasting climatic conditions, two representative weeks were simulated: an austral summer week (January 4--10, 2023), corresponding to the period of highest photosynthetic activity and temperature in the region, and an austral winter week (August 1--7, 2023), characterized by lower solar radiation availability and temperatures~\cite{guenther2006,liakakou2007}. This selection allows the sensitivity of the model to the LAI source to be evaluated under two opposing phenological regimes, given that isoprene emissions depend strongly on both active leaf biomass and light and temperature conditions~\cite{guenther1993}.
 
 The updated scenario used LAI derived from MODIS (MCD15A2H product version 6.1, 500~m resolution)~\cite{myneni2021,lin2023}. This product reports LAI values as 8-day composites: for each pixel, the best quality observation available from the Aqua and Terra satellites is selected within a window of 8 consecutive days, dividing the year into 46 fixed periods. The composites corresponding to 2023 that coincide with each simulated week were used (composite 1 for the summer week; composite 27 for the winter week). All other model inputs (canopy type, meteorology, emission factors) were kept constant across all simulations to isolate the effect of the LAI source.
 
 Since the WRF domain extends beyond the political boundaries of Argentina into neighboring countries and the ocean, all reported emission totals and regional statistics were restricted to the Argentine continental territory using a binary land mask derived from official shapefiles from the Instituto Geogr\'afico Nacional (IGN)~\cite{ign}.
 
-To analyze the variation of results according to the ecological region of the country, an ecoregion map~\cite{olson2001,dinerstein2017} was used that divides the territory into zones of similar vegetation and climate (e.g., Chaco, Pampa, Patagonia). Each model grid cell was assigned the corresponding ecoregion based on its geographic location.
+To analyze the variation of results according to the ecological region of the country, an ecoregion map~\cite{olson2001,dinerstein2017} was used that divides the territory into zones of similar vegetation and climate (e.g., Chaco, Pampa, Patagonia). Each model grid cell was assigned the corresponding ecoregion based on its geographic location (Fig.~\ref{fig:ecoregions}).
+
+\begin{figure}[!t]
+\centering
+\includegraphics{fig3_ecoregions}
+\caption{WWF/Olson terrestrial ecoregions~\cite{olson2001,dinerstein2017} assigned to each 30~km grid cell of the Argentine mask; the number of cells per ecoregion is given in parentheses.}
+\label{fig:ecoregions}
+\end{figure}
 
 This work presents the accumulation of all estimated emissions for each week of the austral summer and winter seasons. This was done by integrating isoprene emissions over the 24 hours of each day (sum of the 24 hourly time steps), multiplied by 3600~s per hour, for each simulated week.
 
@@ -118,6 +125,8 @@ National and regional totals were calculated by summing these accumulated cell-l
 % ---------------------------------------------------------------------
 \section{Results}
 
+In Fig.~\ref{fig:lai} we can observe the spatial distribution of the LAI used in the different scenarios analyzed for the summer and winter seasons. The LAI database used by default in MEGAN, representative of the monthly conditions of the periods of interest from 2003 (produced with MODIS v4 data), is compared with the MODIS version 6.1 LAI product corresponding to 2003 and 2023.
+
 \begin{figure*}[!t]
 \centering
 \includegraphics{fig2_lai}
@@ -129,13 +138,11 @@ National and regional totals were calculated by summing these accumulated cell-l
 % VERIFICAR: las etiquetas de fila dentro de la imagen dicen DOY 004-010 y DOY 209-216;
 %            conviene unificar el criterio (fechas simuladas vs. composites) al regenerar la figura.
 
-In Fig.~\ref{fig:lai} we can observe the spatial distribution of the LAI used in the different scenarios analyzed for the summer and winter seasons. The LAI database used by default in MEGAN, representative of the monthly conditions of the periods of interest from 2003 (produced with MODIS v4 data), is compared with the MODIS version 6.1 LAI product corresponding to 2003 and 2023.
-
 The inclusion of the 2003 MODIS version 6.1 product for both seasons allows the changes associated with the update of the data processing algorithm to be distinguished. Although both MODIS products correspond to the same satellite mission, version 6.1 incorporates a complete reprocessing of the historical archive using improved algorithms, which include refined radiometric calibration, updated atmospheric corrections, improved characterization of observation geometry, more robust quality filters, and advances in the LAI retrieval algorithm~\cite{lin2023}. As a result, the 2003 product in version 6.1 offers a more consistent and accurate LAI estimate than the versions originally used to develop the MEGAN climatology (version 4).
 
 Based on these data, the impact of the update on the national biogenic isoprene emission balance was evaluated. Subsequently, the analysis was extended to the regional scale with the aim of determining whether the sensitivity observed at the national level is homogeneously distributed across the territory or whether, on the contrary, it depends on the characteristics of the vegetation cover and the different ecosystems present in each region.
 
-Table~\ref{tab:national} presents the total sum of weekly isoprene (ISOP) emissions after restricting the simulation domain to the Argentine continental territory using a geographic mask. Emissions were moderately lower when using the updated LAI (MODIS product version 6.1) compared to the standard (Default, i.e., MODIS product version 4), with similar relative differences between seasons: $-2.92\%$ in summer and $-2.86\%$ in winter. However, in absolute terms the difference was considerably larger in summer ($-230\,497$~kmol) than in winter ($-41\,864$~kmol), reflecting that the higher baseline emission load in summer amplifies the absolute effect of the LAI change, even when the relative percentage change is similar between seasons.
+Table~\ref{tab:national} presents the total sum of weekly ISOP emissions after restricting the simulation domain to the Argentine continental territory using a geographic mask. Emissions were moderately lower when using the updated LAI (MODIS product version 6.1) compared to the standard (Default, i.e., MODIS product version 4), with similar relative differences between seasons: $-2.92\%$ in summer and $-2.86\%$ in winter. However, in absolute terms the difference was considerably larger in summer ($-230\,497$~kmol) than in winter ($-41\,864$~kmol), reflecting that the higher baseline emission load in summer amplifies the absolute effect of the LAI change, even when the relative percentage change is similar between seasons.
 
 \begin{table}[!t]
 \centering
@@ -152,16 +159,9 @@ Winter & \num{1462273} & \num{1420409} & \num{-41864}  & $-2.86$ \\
 \end{tabular}
 \end{table}
 
-To investigate whether this national pattern was uniform or responded to some regional variable, the results were disaggregated by terrestrial ecoregion, assigning to each grid cell the corresponding WWF/Olson ecoregion based on its geographic location~\cite{olson2001,dinerstein2017}. This breakdown (Fig.~\ref{fig:ecoregions}; Table~\ref{tab:ecoregions}) allowed the relative and absolute sensitivity to be directly compared between ecosystems of different nature within the same analytical framework.
+To investigate whether this national pattern was uniform or responded to some regional variable, the results were disaggregated by terrestrial ecoregion, assigning to each grid cell the corresponding World Wide Fund for Nature (WWF)/Olson ecoregion based on its geographic location~\cite{olson2001,dinerstein2017}. This breakdown (Table~\ref{tab:ecoregions}) allowed the relative and absolute sensitivity to be directly compared between ecosystems of different nature within the same analytical framework.
 
-\begin{figure}[!t]
-\centering
-\includegraphics{fig3_ecoregions}
-\caption{WWF/Olson terrestrial ecoregions~\cite{olson2001,dinerstein2017} assigned to each 30~km grid cell of the Argentine mask; the number of cells per ecoregion is given in parentheses.}
-\label{fig:ecoregions}
-\end{figure}
-
-The Dry Chaco, the most extensive ecoregion with the highest absolute emissions in the domain (552 cells), showed a moderate and consistent relative sensitivity between seasons ($-2.94\%$ in summer, $-3.84\%$ in winter), in line with the national pattern. The Patagonian Steppe, on the other hand, was the most notable exception in the set: despite having a similar number of cells (584), its total baseline emissions were orders of magnitude lower than those of the Chaco, and its relative sensitivity was considerably higher than the rest of the domain in both seasons, being slightly greater in winter ($-25.1\%$ in summer, $-31.0\%$ in winter). This contrast between an ecoregion of high emission and low relative sensitivity (Chaco) and another of low emission and high relative sensitivity (Patagonia) illustrates that the effect of the LAI change is not distributed proportionally to the size or emissions of each zone, but rather depends on the intrinsic characteristics of each ecosystem. Conversely, the remaining ecoregions, grouped in Table~\ref{tab:ecoregions} as ``Other ecoregions'' ($\sim$10\% of the national total), showed a slight increase in emissions ($+2.6\%$ in summer, $+2.9\%$ in winter), partially offsetting the reductions observed in the main emitting ecoregions.
+As shown in Table~\ref{tab:ecoregions}, the Dry Chaco, the ecoregion with the highest absolute emissions in the domain (552 cells), showed a moderate and consistent relative sensitivity between seasons ($-2.94\%$ in summer, $-3.84\%$ in winter), in line with the national pattern. The Patagonian Steppe, on the other hand, was the most notable exception in the set: despite having a similar number of cells (584), its total baseline emissions were orders of magnitude lower than those of the Chaco, and its relative sensitivity was considerably higher than the rest of the domain in both seasons, being slightly greater in winter ($-25.1\%$ in summer, $-31.0\%$ in winter). This contrast between an ecoregion of high emission and low relative sensitivity (Chaco) and another of low emission and high relative sensitivity (Patagonia) illustrates that the effect of the LAI change is not distributed proportionally to the size or emissions of each zone, but rather depends on the intrinsic characteristics of each ecosystem. Conversely, the remaining ecoregions, grouped in Table~\ref{tab:ecoregions} as ``Other ecoregions'' ($\sim$10\% of the national total), showed a slight increase in emissions ($+2.6\%$ in summer, $+2.9\%$ in winter), partially offsetting the reductions observed in the main emitting ecoregions.
 
 \begin{table}[!t]
 \centering
@@ -198,19 +198,19 @@ Ecoregion & N & & \multicolumn{1}{c}{Default} & \multicolumn{1}{c}{MODIS 2023} &
 % Humid Pampas y Espinal en ambas estaciones (5a: Southern Andean Yungas). N total de la mascara = 3046.
 
 The complete spatial distribution of these differences, shown in the maps of relative ($\Delta E\%$; Fig.~\ref{fig:rel}) and absolute biases ($\Delta E$, kmol; Fig.~\ref{fig:abs}), confirms and extends what was observed at the ecoregion level. In relative terms, Patagonian grid cells show a systematic and marked reduction when using MODIS LAI in both seasons (median $\Delta E\%$ of $-33\%$ in summer and $-41\%$ in winter across Patagonian Steppe cells), while the center-north of the country (Chaco, Pampa) presents much more moderate differences, close to zero. The ecoregion-level values in Table~\ref{tab:ecoregions} ($-25.1\%$ and $-31.0\%$) are smaller in magnitude because they are computed from aggregated totals and are therefore weighted toward the higher-emitting cells, where relative changes are less pronounced.
-In absolute terms, however, the pattern is markedly seasonal: in summer an intense concentration of negative absolute change is observed in the NOA and Chaco regions (below $-500$~kmol per cell in many cells and locally beyond $-1000$~kmol), while in winter that same zone shows much more subtle absolute changes, practically negligible in the rest of the country. This demonstrates that the relative and absolute sensitivity of the model to the LAI source are not equivalent, nor do they respond in the same way to seasonality: Patagonia is relatively more sensitive to LAI change in both seasons, while the absolute sensitivity of the Chaco/NOA is markedly greater in summer than in winter.
+In absolute terms, however, the pattern is markedly seasonal: in summer an intense concentration of negative absolute change is observed in northwestern Argentina (NOA) and the Chaco region (below $-500$~kmol per cell in many cells and locally beyond $-1000$~kmol), while in winter that same zone shows much more subtle absolute changes, practically negligible in the rest of the country. This demonstrates that the relative and absolute sensitivity of the model to the LAI source are not equivalent, nor do they respond in the same way to seasonality: Patagonia is relatively more sensitive to LAI change in both seasons, while the absolute sensitivity of the Chaco/NOA is markedly greater in summer than in winter.
 
 \begin{figure}[!t]
 \centering
 \includegraphics{fig4_rel_bias}
-\caption{Relative isoprene emission bias ($\Delta E\%$, MODIS vs.\ Default) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission. The color scale is saturated at $\pm60\%$.}
+\caption{Relative isoprene emission bias ($\Delta E\%$, MODIS vs.\ Default) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission. The color scale is saturated at $\pm60\%$. Dashed lines: ecoregion boundaries (Fig.~\ref{fig:ecoregions}).}
 \label{fig:rel}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
 \includegraphics{fig5_abs_bias}
-\caption{Absolute isoprene emission bias ($\Delta E = $ MODIS $-$ Default, kmol, weekly total) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission; the color scale is saturated at the 99th percentile of $|\Delta E|$.}
+\caption{Absolute isoprene emission bias ($\Delta E = $ MODIS $-$ Default, kmol, weekly total) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission; the color scale is saturated at the 99th percentile of $|\Delta E|$. Dashed lines: ecoregion boundaries (Fig.~\ref{fig:ecoregions}).}
 \label{fig:abs}
 \end{figure}
 
@@ -225,12 +225,12 @@ Fig.~\ref{fig:temporal} complements the spatial analysis with a temporal charact
 
 In terms of daily total emissions (Fig.~\ref{fig:temporal}a and \ref{fig:temporal}b), both scenarios show a very similar temporal evolution in both seasons, with the curves practically overlapping. In summer (Fig.~\ref{fig:temporal}a), daily emissions range between approximately $800\times10^3$ and $1300\times10^3$~kmol/day, with an increasing trend toward the end of the week. In winter (Fig.~\ref{fig:temporal}b), values are considerably lower (between approximately $100\times10^3$ and $310\times10^3$~kmol/day). In both cases, the gap between scenarios (grey area, $\Delta E$) remains constant in relative terms throughout the days, indicating that the sensitivity to LAI does not depend on intra-weekly meteorological variability but rather reflects a structural difference in the LAI input.
 
-The mean diurnal cycle (Fig.~\ref{fig:temporal}c and \ref{fig:temporal}d) shows the characteristic pattern of isoprene emissions controlled by light and temperature~\cite{guenther1993}: zero values during nighttime hours, a marked increase from 10--11~h UTC, a peak around 17~h UTC (${\sim}14$~h local time), and a decline toward the late afternoon and evening. In summer, the mean peak reaches ${\sim}40$~kmol/s for the Default scenario and ${\sim}37$~kmol/s for emissions estimated with updated MODIS data; in winter, the peaks are ${\sim}9$ and ${\sim}8$~kmol/s, respectively. The shaded area represents the inter-day standard deviation within each week; although larger in absolute terms in summer, it is proportionally larger in winter, reflecting the greater day-to-day meteorological variability of that week (see also Fig.~\ref{fig:temporal}b). Notably, the shape of the diurnal cycle is practically identical between scenarios, confirming that the effect of LAI acts as a scaling factor on the magnitude of emissions without modifying their temporal distribution.
+The mean diurnal cycle (Fig.~\ref{fig:temporal}c and \ref{fig:temporal}d) shows the characteristic pattern of isoprene emissions controlled by light and temperature~\cite{guenther1993}: zero values during nighttime hours, a marked increase from 10--11~h Coordinated Universal Time (UTC), a peak around 17~h UTC (${\sim}14$~h local time), and a decline toward the late afternoon and evening. In summer, the mean peak reaches ${\sim}40$~kmol/s for the Default scenario and ${\sim}37$~kmol/s for emissions estimated with updated MODIS data; in winter, the peaks are ${\sim}9$ and ${\sim}8$~kmol/s, respectively. The shaded area represents the inter-day standard deviation within each week; although larger in absolute terms in summer, it is proportionally larger in winter, reflecting the greater day-to-day meteorological variability of that week (see also Fig.~\ref{fig:temporal}b). Notably, the shape of the diurnal cycle is practically identical between scenarios, confirming that the effect of LAI acts as a scaling factor on the magnitude of emissions without modifying their temporal distribution.
 
 % ---------------------------------------------------------------------
 \section{Discussion and Conclusion}
 
-The results obtained indicate that the LAI source introduces a moderate sensitivity in isoprene emissions simulated by MEGAN for Argentina. Its magnitude, however, is not constant: it varies substantially depending on whether the absolute or relative metric is considered, as well as the region analyzed. The national sensitivity found (${\sim}2.9\%$) was considerably lower than the 29\% reported by Guenther et al.~\cite{guenther2006} for changes in the LAI input.
+The results obtained indicate that the LAI source introduces a moderate sensitivity in isoprene emissions simulated by MEGAN for Argentina. Its magnitude, however, is not constant: it varies substantially depending on whether the absolute or relative metric is considered, as well as the region analyzed. The national sensitivity found (${\sim}2.9\%$) was considerably lower than the 29\% reported in~\cite{guenther2006} for changes in the LAI input.
 
 At the national scale, the relative sensitivity did not show a marked seasonality, remaining at similar values between summer and winter ($-2.92\%$ and $-2.86\%$, respectively). Patagonia constituted the main exception to this pattern, with a relative sensitivity systematically higher than the rest of the country in both seasons. The absolute sensitivity, on the contrary, did show a marked seasonal dependence, being considerably greater in summer (particularly in the Chaco). This behavior is consistent with the higher baseline emissions characteristic of that season: the same percentage change in LAI translates into an absolute variation of greater magnitude when the baseline emission is already high~\cite{guenther2006,sun2025}.
 

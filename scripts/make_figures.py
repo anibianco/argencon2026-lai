@@ -164,6 +164,28 @@ def scale_bar(ax, km=500, fx=0.06, fy=0.04):
             color=INK, zorder=10)
 
 
+def eco_contours(ax, color="#3a3a3a", lw=0.45):
+    """Limites entre ecorregiones (las 5 principales + 'otras') trazados sobre la grilla."""
+    from matplotlib.collections import LineCollection
+    code = np.full((NY, NX), -1)
+    for k, n in enumerate(ECO_COLORS):
+        code[(ECO == n) & MASK] = k
+    code[MASK & (code < 0)] = 99
+    segs = []
+    for j in range(NY):
+        for i in range(NX - 1):
+            a, b = code[j, i], code[j, i + 1]
+            if a != b and a >= 0 and b >= 0:
+                segs.append([(xe[i + 1], ye[j]), (xe[i + 1], ye[j + 1])])
+    for j in range(NY - 1):
+        for i in range(NX):
+            a, b = code[j, i], code[j + 1, i]
+            if a != b and a >= 0 and b >= 0:
+                segs.append([(xe[i], ye[j + 1]), (xe[i + 1], ye[j + 1])])
+    ax.add_collection(LineCollection(segs, colors=color, linewidths=lw, zorder=4,
+                                     linestyles=(0, (2.5, 1.2))))
+
+
 def field(ax, Z, cmap, norm, mask=None):
     Z = np.array(Z, dtype=float)
     if mask is not None:
@@ -270,6 +292,7 @@ def _bias_maps(values, cmap, norm, cblabel, name, extend):
                                fc="#f4f4f4", ec="none", zorder=0))
         field(ax, np.ones((NY, NX)), ListedColormap(["#c8c8c8"]), None, MASK)   # sin emision Default
         pm = field(ax, Z, cmap, norm, MASK)
+        eco_contours(ax)
         outline(ax, 0.45)
         ax.set_title(title, fontsize=8, pad=2)
     north_arrow(axs[0], fx=0.84, fy=0.90, size=0.075); scale_bar(axs[0], 500, fx=0.07, fy=0.03)
