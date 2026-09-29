@@ -187,15 +187,14 @@ Ecoregion & N & & \multicolumn{1}{c}{Default} & \multicolumn{1}{c}{MODIS 2023} &
 \multirow{2}{*}{Patagonian Steppe} & \multirow{2}{*}{584} & S & \num{100387}  & \num{75146}   & \num{-25241}  & $-25.14$ \\
                                    &                      & W & \num{2078}    & \num{1434}    & \num{-644}    & $-31.01$ \\
 \addlinespace
-\multirow{2}{*}{Other ecoregions}  & \multirow{2}{*}{--}  & S & \num{766394}  & \num{786430}  & \num{20036}   & $+2.61$ \\
+\multirow{2}{*}{Other ecoregions}  & \multirow{2}{*}{979}  & S & \num{766394}  & \num{786430}  & \num{20036}   & $+2.61$ \\
                                    &                      & W & \num{167135}  & \num{171954}  & \num{4818}    & $+2.88$ \\
 \bottomrule
 \multicolumn{7}{@{}p{\columnwidth}@{}}{\footnotesize Values are restricted to Argentine continental territory using the IGN-derived land mask. $\Delta E = $ MODIS $-$ Default; $\Delta E(\%) = 100\,\Delta E/$Default. The four main emitting ecoregions are shown, together with the Patagonian Steppe, included as a low-emission, high-relative-sensitivity contrast case. ``Other ecoregions'' is the residual between the national totals (Table~\ref{tab:national}) and the ecoregions listed.}
 \end{tabular}
 \end{table}
-% VERIFICAR: que Dry Chaco, Humid Pampas, Espinal y Humid Chaco sean efectivamente las 4 de mayor emision
-%            (p.ej., que las Yungas no superen al Humid Chaco). Si alguna la supera, ajustar el pie.
-% VERIFICAR: completar N de "Other ecoregions" (celdas totales de la mascara - 2067).
+% Verificado con data/ISOP_stats_by_ecoregion_ARGonly_v2.csv: las 4 mayores son Dry Chaco, Humid Chaco,
+% Humid Pampas y Espinal en ambas estaciones (5a: Southern Andean Yungas). N total de la mascara = 3046.
 
 The complete spatial distribution of these differences, shown in the maps of relative ($\Delta E\%$; Fig.~\ref{fig:rel}) and absolute biases ($\Delta E$, kmol; Fig.~\ref{fig:abs}), confirms and extends what was observed at the ecoregion level. In relative terms, most Patagonian grid cells show a systematic and marked reduction ($-40\%$ to $-60\%$) when using MODIS LAI, in both seasons, while the center-north of the country (Chaco, Pampa) presents much more moderate differences, close to zero. The ecoregion-level values in Table~\ref{tab:ecoregions} ($-25.1\%$ and $-31.0\%$) are smaller in magnitude because they are computed from aggregated totals and are therefore weighted toward the higher-emitting cells, where relative changes are less pronounced. % VERIFICAR con la mediana de DeltaE% por celda en la Patagonian Steppe
 In absolute terms, however, the pattern is markedly seasonal: in summer an intense concentration of negative absolute change is observed in the NOA and Chaco regions (exceeding $-600$~kmol per cell) % VERIFICAR: antes decia -25 kmol; la barra de color de la Fig. 5 llega a +-700 kmol, while in winter that same zone shows much more subtle absolute changes, practically negligible in the rest of the country. This demonstrates that the relative and absolute sensitivity of the model to the LAI source are not equivalent, nor do they respond in the same way to seasonality: Patagonia is relatively more sensitive to LAI change in both seasons, while the absolute sensitivity of the Chaco/NOA is markedly greater in summer than in winter.
