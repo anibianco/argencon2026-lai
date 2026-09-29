@@ -15,6 +15,7 @@ import numpy as np
 import netCDF4 as nc
 
 H = os.path.expanduser("~")
+R = os.path.join(H, "MEGAN2023")   # carpeta que contiene las 4 corridas
 OUT = os.path.join(H, "ARGENCON_figuras", "figdata_argencon.npz")
 
 RUNS = {
@@ -34,7 +35,7 @@ for key, rundir in RUNS.items():
     season = key.split("_")[0]
     cube = []
     for doy in DOYS[season]:
-        f = f"{H}/{rundir}/MEGAN/Output/FINAL/MEGANv32.ARG_30km.CB6X.2023{doy:03d}.BDSNP.ncf"
+        f = f"{R}/{rundir}/MEGAN/Output/FINAL/MEGANv32.ARG_30km.CB6X.2023{doy:03d}.BDSNP.ncf"
         with nc.Dataset(f) as ds:
             v = ds.variables["ISOP"]
             x = np.array(v[:, 0, :, :], dtype="f8")          # (TSTEP, ROW, COL)
@@ -61,8 +62,8 @@ def read_lai(path, var, scale=1.0):
 
 for season, tag in [("summer", "verano"), ("winter", "invierno")]:
     var = LAIVAR[season]
-    p_def = f"{H}/MEGAN_{tag}2023_LAIdefault/MEGAN/Input/MAP/LAI3_ARG_30km_PYTHONREGRID.ncf"
-    p_m23 = f"{H}/MEGAN_{tag}2023/LAI/processed/LAI3_ARG_30km_{tag}2023.ncf"
+    p_def = f"{R}/MEGAN_{tag}2023_LAIdefault/MEGAN/Input/MAP/LAI3_ARG_30km_PYTHONREGRID.ncf"
+    p_m23 = f"{R}/MEGAN_{tag}2023/LAI/processed/LAI3_ARG_30km_{tag}2023.ncf"
     for name, p, sc in [("default_laiv", p_def, 0.1), ("modis2023", p_m23, 1.0)]:
         try:
             out[f"lai_{name}_{season}"] = read_lai(p, var, sc)
