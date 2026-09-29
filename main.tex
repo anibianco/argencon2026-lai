@@ -25,33 +25,32 @@
 \title{Sensitivity of Biogenic Volatile Organic Compound Emissions Estimates to Different Leaf Area Index Inputs}
 
 \author{%
-\IEEEauthorblockN{Anah\'i Bianco}
-\IEEEauthorblockA{\textit{Instituto de Investigaciones en}\\
-\textit{Fisicoqu\'imica de C\'ordoba --}\\
-\textit{Instituto Gulich -- CONICET}\\
+\begin{tabular}{@{}c@{\hspace{0.01\textwidth}}c@{\hspace{0.01\textwidth}}c@{}}
+\parbox[t]{0.31\textwidth}{\centering\small Anah\'i Bianco\\
+{\small\itshape Instituto de Investigaciones en\\
+Fisicoqu\'imica de C\'ordoba --\\
+Instituto Gulich -- CONICET\\
 C\'ordoba, Argentina\\
-anahi.bianco@ig.edu.ar}
-\and
-\IEEEauthorblockN{Mar\'ia Fernanda Garc\'ia Ferreyra}
-\IEEEauthorblockA{\textit{Comisi\'on Nacional de}\\
-\textit{Actividades Espaciales (CONAE)}\\
+anahi.bianco@ig.edu.ar}} &
+\parbox[t]{0.36\textwidth}{\centering\small Mar\'ia Fernanda Garc\'ia Ferreyra\\
+{\small\itshape Comisi\'on Nacional de\\
+Actividades Espaciales (CONAE)\\
 Falda del Carmen, Argentina\\
-fgarciaferreyra@conae.gov.ar}
-\and
-\IEEEauthorblockN{Maxi Alberto Burgos Paci} % VERIFICAR nombre completo
-\IEEEauthorblockA{\textit{Instituto de Investigaciones en}\\
-\textit{Fisicoqu\'imica de C\'ordoba}\\
-\textit{CONICET}\\
+fgarciaferreyra@conae.gov.ar}} &
+\parbox[t]{0.29\textwidth}{\centering\small Mario Agust\'in Sgr\'o\\
+{\small\itshape Comisi\'on Nacional de\\
+Actividades Espaciales (CONAE)\\
+Falda del Carmen, Argentina\\
+mario.sgro@ig.edu.ar}} \\
+[1ex]
+\multicolumn{3}{c}{\parbox[t]{0.40\textwidth}{\centering\small Maxi Alberto Burgos Paci\\
+{\small\itshape Instituto de Investigaciones en\\
+Fisicoqu\'imica de C\'ordoba\\
+CONICET\\
 C\'ordoba, Argentina\\
-mburgos@fcq.unc.edu.ar}
-\and
-\IEEEauthorblockN{Mario Agust\'in Sgr\'o}
-\IEEEauthorblockA{\textit{Comisi\'on Nacional de}\\
-\textit{Actividades Espaciales (CONAE)}\\
-Falda del Carmen, Argentina\\
-mario.sgro@ig.edu.ar}
+mburgos@fcq.unc.edu.ar}}}
+\end{tabular}
 }
-
 \maketitle
 
 % ---------------------------------------------------------------------
@@ -83,7 +82,6 @@ This contribution presents a sensitivity analysis of isoprene emissions estimate
 
 % ---------------------------------------------------------------------
 \section{Materials and Methods}
-
 Biogenic isoprene emissions were estimated using MEGAN v3.2~\cite{guenther2020}, with meteorological field inputs from WRF v4.5.1. The simulation domain, as shown in Fig.~\ref{fig:domain}, was centered at coordinates 40\textdegree S, 63\textdegree W, with a horizontal resolution of 30~km ($79$ columns $\times$ $159$ rows in the raw WRF domain, trimmed to $77 \times 157$ for MEGAN processing, following standard MEGAN preprocessing conventions). The chemical mechanism used for speciation was the Carbon Bond mechanism version~6 (CB6X)~\cite{emery2015}.
 
 \begin{figure}[!t]
