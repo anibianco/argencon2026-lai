@@ -242,7 +242,7 @@ def fig2_lai():
     ]
     cmap = mpl.colormaps["Greens"]; norm = mpl.colors.Normalize(0, 6)
     # 2 filas (verano / invierno) x 3 columnas (fuente de LAI), como la figura original
-    fig, axs = plt.subplots(2, 3, figsize=(PAGE_W * 0.80, 6.3),
+    fig, axs = plt.subplots(2, 3, figsize=(PAGE_W * 0.70, 4.9),
                             gridspec_kw=dict(wspace=0.05, hspace=0.12))
     cols = ["Default (MEGAN, ~2003)", "MODIS v6.1 2003", "MODIS v6.1 2023"]
     rows = ["Summer (4–10 Jan 2023)", "Winter (1–7 Aug 2023)"]
