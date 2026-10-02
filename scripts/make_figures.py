@@ -241,21 +241,24 @@ def fig2_lai():
         ("winter", "MODIS v6.1 2023", D["lai_modis2023_winter"]),
     ]
     cmap = mpl.colormaps["Greens"]; norm = mpl.colors.Normalize(0, 6)
-    fig, axs = plt.subplots(1, 6, figsize=(PAGE_W, 2.75), gridspec_kw=dict(wspace=0.04))
-    for i, (ax, (season, name, Z)) in enumerate(zip(axs, panels)):
+    # 2 filas (verano / invierno) x 3 columnas (fuente de LAI), como la figura original
+    fig, axs = plt.subplots(2, 3, figsize=(PAGE_W * 0.80, 6.3),
+                            gridspec_kw=dict(wspace=0.05, hspace=0.12))
+    cols = ["Default (MEGAN, ~2003)", "MODIS v6.1 2003", "MODIS v6.1 2023"]
+    rows = ["Summer (4–10 Jan 2023)", "Winter (1–7 Aug 2023)"]
+    for k, (ax, (season, name, Z)) in enumerate(zip(axs.flat, panels)):
+        r, c = divmod(k, 3)
         Z = np.where(Z < 0, np.nan, Z)
-        setup_map(ax, left=(i == 0), bottom=True, lon_lab_step=20)
+        setup_map(ax, left=(c == 0), bottom=(r == 1), lon_lab_step=10)
         pm = field(ax, Z, cmap, norm)
         outline(ax, 0.4)
-        ax.set_title(f"({'abcdef'[i]}) {name}", fontsize=7, pad=2)
-    fig.subplots_adjust(top=0.80)
-    yh = axs[0].get_position().y1 + 0.075
-    axs[0].figure.text(0.5 * (axs[0].get_position().x0 + axs[2].get_position().x1), yh,
-                       "Summer (4–10 Jan 2023)", ha="center", va="bottom", fontsize=8, weight="bold")
-    axs[0].figure.text(0.5 * (axs[3].get_position().x0 + axs[5].get_position().x1), yh,
-                       "Winter (1–7 Aug 2023)", ha="center", va="bottom", fontsize=8, weight="bold")
-    north_arrow(axs[0], fx=0.80, fy=0.88, size=0.08); scale_bar(axs[0], 500, fx=0.08, fy=0.03)
-    cb = fig.colorbar(pm, ax=axs, orientation="vertical", fraction=0.015, pad=0.012, extend="max")
+        ax.set_title(f"({'abcdef'[k]})" + (f" {cols[c]}" if r == 0 else ""), fontsize=8, pad=3)
+        if c == 0:
+            ax.text(-0.30, 0.5, rows[r], transform=ax.transAxes, rotation=90,
+                    ha="center", va="center", fontsize=8, weight="bold")
+    north_arrow(axs[0, 0], fx=0.82, fy=0.40, size=0.07); scale_bar(axs[0, 0], 500, fx=0.08, fy=0.03)
+    cb = fig.colorbar(pm, ax=axs, orientation="vertical", fraction=0.025, pad=0.02, extend="max",
+                      shrink=0.6)
     cb.set_label("LAI (m$^2$ m$^{-2}$)"); cb.outline.set_linewidth(0.5)
     save(fig, "fig2_lai")
 
