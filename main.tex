@@ -99,7 +99,7 @@ Biogenic isoprene (ISOP) emissions were estimated using MEGAN v3.2~\cite{guenthe
 \begin{figure}[!t]
 \centering
 \includegraphics{fig1_domain}
-\caption{Simulation domains (Lambert Conformal Conic projection): raw WRF domain, trimmed MEGAN domain (30~km), MODIS MCD15A2H download extent, and Argentine land mask (IGN) used to restrict all totals.}
+\caption{Simulation domains (30~km Lambert Conformal Conic grid, shown in geographic coordinates): raw WRF domain, trimmed MEGAN domain (30~km), MODIS MCD15A2H download extent, and Argentine land mask (IGN) used to restrict all totals.}
 \label{fig:domain}
 \end{figure}
 
@@ -142,7 +142,7 @@ In Fig.~\ref{fig:lai} we can observe the spatial distribution of the LAI used in
 \begin{figure*}[!t]
 \centering
 \includegraphics{fig2_lai}
-\caption{Spatial comparison of the Leaf Area Index (LAI) over the Argentine continental domain (30~km resolution, Lambert Conformal Conic projection) for the summer (top row; MODIS 8-day composite~1) and winter (bottom row; composite~27) weeks. (a, d) MEGAN v3.2 default LAI climatology (representative of ${\sim}2003$); (b, e) MODIS v6.1 (MCD15A2H) LAI for 2003; (c, f) same for 2023. % VERIFICAR: el pie original decia que el Default estaba corregido por fraccion de cobertura (LAIv->LAI); el array graficado es LAIv/10 sin esa correccion.
+\caption{Spatial comparison of the Leaf Area Index (LAI) over the Argentine continental domain (30~km resolution, Lambert Conformal Conic grid) for the summer (top row; MODIS 8-day composite~1) and winter (bottom row; composite~27) weeks. (a, d) MEGAN v3.2 default LAI climatology (representative of ${\sim}2003$); (b, e) MODIS v6.1 (MCD15A2H) LAI for 2003; (c, f) same for 2023. % VERIFICAR: el pie original decia que el Default estaba corregido por fraccion de cobertura (LAIv->LAI); el array graficado es LAIv/10 sin esa correccion.
  All panels are in LAI units (m$^2$ leaf/m$^2$ ground).}
 \label{fig:lai}
 \end{figure*}
@@ -215,14 +215,14 @@ In absolute terms, however, the pattern is markedly seasonal: in summer an inten
 \begin{figure}[!t]
 \centering
 \includegraphics{fig4_rel_bias}
-\caption{Relative isoprene emission bias ($\Delta E\%$, MODIS vs.\ Default) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission. The color scale is saturated at $\pm60\%$. Dashed lines: ecoregion boundaries (Fig.~\ref{fig:ecoregions}).}
+\caption{Relative isoprene emission bias ($\Delta E\%$, MODIS vs.\ Default) for (a) summer and (b) winter, restricted to Argentine territory. The color scale is saturated at $\pm60\%$. Dashed lines: ecoregion boundaries (Fig.~\ref{fig:ecoregions}).}
 \label{fig:rel}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
 \includegraphics{fig5_abs_bias}
-\caption{Absolute isoprene emission bias ($\Delta E = $ MODIS $-$ Default, kmol, weekly total) for (a) summer and (b) winter, restricted to Argentine territory. Grey cells have zero Default emission; the color scale is saturated at the 99th percentile of $|\Delta E|$. Dashed lines: ecoregion boundaries (Fig.~\ref{fig:ecoregions}).}
+\caption{Absolute isoprene emission bias ($\Delta E = $ MODIS $-$ Default, kmol, weekly total) for (a) summer and (b) winter, restricted to Argentine territory. The color scale is saturated at the 99th percentile of $|\Delta E|$. Dashed lines: ecoregion boundaries (Fig.~\ref{fig:ecoregions}).}
 \label{fig:abs}
 \end{figure}
 
